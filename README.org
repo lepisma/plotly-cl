@@ -9,8 +9,11 @@ Needs ~live-server~ from npm.
 npm i -g live-server
 #+END_SRC
 
-We will reproduce the chart from [[https://plot.ly/javascript/line-and-scatter/#data-labels-on-the-plot][here]]. JavaScript code is copied below. Lisp
-code follows.
+We will reproduce the following char from [[https://plot.ly/javascript/line-and-scatter/#data-labels-on-the-plot][here]].
+
+[[file:./plot.png]]
+
+JavaScript code is copied below. Lisp code follows.
 
 #+BEGIN_SRC js
   var trace1 = {
