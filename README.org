@@ -2,13 +2,6 @@
 
 Plot stuff using ~plotly.js~ in Common Lisp.
 
-Needs ~live-server~ from npm.
-
-#+BEGIN_SRC shell
-# Install live-server
-npm i -g live-server
-#+END_SRC
-
 We will reproduce the following chart from [[https://plot.ly/javascript/line-and-scatter/#data-labels-on-the-plot][here]].
 
 [[file:./plot.png]]
@@ -97,5 +90,5 @@ JavaScript code is copied below. Lisp code follows.
                                         (:size . 20)
                                         (:color . "grey")))))
                   (:title . "Data Labels on the Plot"))))
-    (pl-plot (list trace-1 trace-2) :layout layout))
+    (pl-plot (list trace-1 trace-2) :layout layout :width 1000 :height 500))
 #+END_SRC
