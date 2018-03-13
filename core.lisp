@@ -29,7 +29,7 @@
   "Create str for a single trace"
   (json:encode-json-alist-to-string trace-alist))
 
-(defun join-traces (traces)
+(defun join-traces (&rest traces)
   "Join traces in a single list"
   (format nil "[~{~a~^,~}]" traces))
 
@@ -37,10 +37,11 @@
   "Make layout str"
   (json:encode-json-alist-to-string layout-alist))
 
-(defun -plot (data &optional layout)
+(defun pl-plot (data &optional layout)
   "Plot the data (list of traces)"
   (let ((plot-code (ps:ps
                      (let ((div ((ps:@ document get-element-by-id) "plot")))
                        (*plotly.plot div ((ps:@ *json* parse) (ps:lisp data))
                                      ((ps:@ *json* parse) (ps:lisp layout)))))))
-    (write-plot plot-code)))
+    (write-plot plot-code)
+    (plotly-server::start)))

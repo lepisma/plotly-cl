@@ -4,4 +4,10 @@
   (:use #:cl))
 
 (defpackage #:plotly
-  (:use #:cl))
+  (:use #:cl)
+  (:export #:make-trace
+           #:join-traces
+           #:make-layout
+           #:pl-plot
+           #:line
+           #:scatter))
