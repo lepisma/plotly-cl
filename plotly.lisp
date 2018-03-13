@@ -2,17 +2,17 @@
 
 (in-package #:plotly)
 
-(defconstant *cache-dir* #p"~/.cache/plotly.lisp/"
-             "Directory for keeping temporary files")
+(defvar *cache-dir* #p"~/.cache/plotly.lisp/"
+        "Directory for keeping temporary files")
 
 (defun generate-plot (plot-code &optional (width 600) (height 400))
-  (with-html-output-to-string (_)
+  (who:with-html-output-to-string (_)
     (:html
      (:head
       (:script :src "https://cdn.plot.ly/plotly-latest.min.js"))
      (:body
-      (:div :id "plot" :style (str (format nil "width:~Apx;height:~Apx;" width height)))
-      (:script (str plot-code))))))
+      (:div :id "plot" :style (who:str (format nil "width:~Apx;height:~Apx;" width height)))
+      (:script (who:str plot-code))))))
 
 (defun write-plot (plot-code)
   "Write output to the file"
@@ -27,7 +27,7 @@
 (defun plot (x y)
   "Plot simple vectors"
   (let ((plot-code (ps:ps
-                     (let ((div ((@ document get-element-by-id) "plot")))
+                     (let ((div ((ps:@ document get-element-by-id) "plot")))
                        (*plotly.plot div (list (ps:create x (ps:lisp x)
                                                           y (ps:lisp y))))))))
     (write-plot plot-code)))

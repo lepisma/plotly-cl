@@ -2,10 +2,10 @@
 
 (in-package #:plotly-server)
 
-(defconstant *cmd* "live-server"
-  "Command for launching the server")
+(defvar *cmd* "live-server"
+  "Command for running the server")
 
-(defconstant *port* 8800
+(defvar *port* 8800
   "Port to fire server at")
 
 (defvar *process* NIL
