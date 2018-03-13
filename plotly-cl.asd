@@ -6,10 +6,9 @@
   :license "GPLv3"
   :depends-on (#:parenscript
                #:cl-who
-               #:serapeum
-               #:cl-json)
+               #:cl-json
+               #:uiop)
   :serial t
   :components ((:file "packages")
-               (:file "server")
                (:file "core")
                (:file "wrappers")))
