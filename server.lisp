@@ -8,7 +8,7 @@
 (defvar *port* 8800
   "Port to fire server at")
 
-(defvar *process* NIL
+(defvar *process* nil
   "Server process")
 
 (defun running? ()
@@ -19,10 +19,10 @@
   "Start server"
   (unless (running?)
     (setf *process*
-          (sb-ext:run-program *cmd* (list (format NIL "--port=~A" *port*))
+          (sb-ext:run-program *cmd* (list (format nil "--port=~A" *port*))
                               :search t
                               :directory plotly::*cache-dir*
-                              :wait NIL))))
+                              :wait nil))))
 
 (defun stop ()
   "Stop server"

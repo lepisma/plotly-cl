@@ -7,8 +7,9 @@
   :depends-on (#:parenscript
                #:cl-who
                #:serapeum
-               #:inferior-shell)
+               #:cl-json)
   :serial t
   :components ((:file "packages")
                (:file "server")
-               (:file "plotly")))
+               (:file "core")
+               (:file "wrappers")))
