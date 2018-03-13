@@ -24,9 +24,6 @@
                         :if-does-not-exist :create)
         (write-string (generate-plot plot-code) fp))))
 
-(defun start-server ()
-  "Start web server and open index.html in browser")
-
 (defun plot (x y)
   "Plot simple vectors"
   (let ((plot-code (ps:ps

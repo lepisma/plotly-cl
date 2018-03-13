@@ -9,5 +9,6 @@
                #:serapeum
                #:inferior-shell)
   :serial t
-  :components ((:file "package")
-               (:file "plotly.lisp")))
+  :components ((:file "packages")
+               (:file "server")
+               (:file "plotly")))
