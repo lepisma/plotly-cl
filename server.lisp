@@ -1,6 +1,6 @@
 ;;;; Server handling component for plotly
 
-(in-package #:plotly-server)
+(in-package #:plotly-cl-server)
 
 (defvar *cmd* "live-server"
   "Command for running the server")
@@ -21,7 +21,7 @@
     (setf *process*
           (sb-ext:run-program *cmd* (list (format nil "--port=~A" *port*))
                               :search t
-                              :directory plotly::*cache-dir*
+                              :directory plotly-cl::*cache-dir*
                               :wait nil))))
 
 (defun stop ()

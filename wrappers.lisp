@@ -1,6 +1,6 @@
 ;;;; User end wrappers around main plotly function
 
-(in-package #:plotly)
+(in-package #:plotly-cl)
 
 (defun scatter (x y)
   "Simple scatter plot"

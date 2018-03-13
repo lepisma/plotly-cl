@@ -1,6 +1,6 @@
 ;;;; plotly.lisp.asd
 
-(asdf:defsystem #:plotly
+(asdf:defsystem #:plotly-cl
   :description "Lisp to plotly.js"
   :author "Abhinav Tushar <lepisma@fastmail.com>"
   :license "GPLv3"

@@ -1,9 +1,9 @@
 ;;;; package.lisp
 
-(defpackage #:plotly-server
+(defpackage #:plotly-cl-server
   (:use #:cl))
 
-(defpackage #:plotly
+(defpackage #:plotly-cl
   (:use #:cl)
   (:export #:make-trace
            #:join-traces

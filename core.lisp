@@ -1,6 +1,6 @@
 ;;;; plotly.lisp
 
-(in-package #:plotly)
+(in-package #:plotly-cl)
 
 (defvar *cache-dir* #p"~/.cache/plotly.lisp/"
         "Directory for keeping temporary files")
@@ -44,4 +44,4 @@
                        (*plotly.plot div ((ps:@ *json* parse) (ps:lisp data))
                                      ((ps:@ *json* parse) (ps:lisp layout)))))))
     (write-plot plot-code)
-    (plotly-server::start)))
+    (plotly-cl-server::start)))
