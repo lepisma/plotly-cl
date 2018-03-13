@@ -25,23 +25,13 @@
                         :if-does-not-exist :create)
       (write-string (generate-plot plot-code) fp))))
 
-(defun make-trace (trace-alist)
-  "Create str for a single trace"
-  (json:encode-json-alist-to-string trace-alist))
-
-(defun join-traces (&rest traces)
-  "Join traces in a single list"
-  (format nil "[~{~a~^,~}]" traces))
-
-(defun make-layout (layout-alist)
-  "Make layout str"
-  (json:encode-json-alist-to-string layout-alist))
-
-(defun pl-plot (data &optional layout)
+(defun pl-plot (traces &key layout)
   "Plot the data (list of traces)"
-  (let ((plot-code (ps:ps
-                     (let ((div ((ps:@ document get-element-by-id) "plot")))
-                       (*plotly.plot div ((ps:@ *json* parse) (ps:lisp data))
-                                     ((ps:@ *json* parse) (ps:lisp layout)))))))
+  (let* ((json-traces (format nil "[~{~a~^,~}]" (mapcar #'json:encode-json-alist-to-string traces)))
+         (json-layout (json:encode-json-alist-to-string layout))
+         (plot-code (ps:ps
+                      (let ((div ((ps:@ document get-element-by-id) "plot")))
+                        (*plotly.plot div ((ps:@ *json* parse) (ps:lisp json-traces))
+                                      ((ps:@ *json* parse) (ps:lisp json-layout)))))))
     (write-plot plot-code)
     (plotly-cl-server::start)))

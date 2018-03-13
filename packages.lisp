@@ -5,9 +5,6 @@
 
 (defpackage #:plotly-cl
   (:use #:cl)
-  (:export #:make-trace
-           #:join-traces
-           #:make-layout
-           #:pl-plot
+  (:export #:pl-plot
            #:line
            #:scatter))
