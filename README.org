@@ -9,7 +9,7 @@ Needs ~live-server~ from npm.
 npm i -g live-server
 #+END_SRC
 
-We will reproduce the following char from [[https://plot.ly/javascript/line-and-scatter/#data-labels-on-the-plot][here]].
+We will reproduce the following chart from [[https://plot.ly/javascript/line-and-scatter/#data-labels-on-the-plot][here]].
 
 [[file:./plot.png]]
 
