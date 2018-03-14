@@ -14,7 +14,6 @@
 
 (defun open-plot (plot-code width height)
   "Write output to the file and open browser"
-  (ensure-directories-exist *cache-dir*)
   (uiop/stream:with-temporary-file (:pathname pn :stream stream :direction :output :keep t :type "html")
     (write-string (generate-plot plot-code width height) stream)
     (sb-ext:run-program (or (uiop:getenv "BROWSER") "xdg-open") (list (namestring pn)) :wait nil :search t)))
