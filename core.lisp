@@ -18,7 +18,7 @@
     (write-string (generate-plot plot-code width height) stream)
     (sb-ext:run-program (or (uiop:getenv "BROWSER") "xdg-open") (list (namestring pn)) :wait nil :search t)))
 
-(defun pl-plot (traces &key layout (width 800) (height 600))
+(defun pl-plot (traces &key layout (width 1000) (height 700))
   "Plot the data (list of traces)"
   (let* ((json-traces (format nil "[~{~a~^,~}]" (mapcar #'json:encode-json-alist-to-string traces)))
          (json-layout (json:encode-json-alist-to-string layout))
