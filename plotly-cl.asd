@@ -7,6 +7,8 @@
   :depends-on (#:parenscript
                #:cl-who
                #:cl-json
+               #:cl-css
+               #:cl-interpol
                #:uiop)
   :serial t
   :components ((:file "packages")

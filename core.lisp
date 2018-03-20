@@ -2,14 +2,23 @@
 
 (in-package #:plotly-cl)
 
+(cl-interpol:enable-interpol-syntax)
+
 (defun generate-plot (plot-code width height)
-  (let ((dim (format nil "width:~Apx;height:~Apx;" width height)))
+  (let ((style (cl-css:css `((html :height 100%)
+                             (body :height 100%
+                                   :display flex
+                                   :justify-content center
+                                   :align-items center)
+                             ("#plot" :width ,#?"${width}px"
+                                      :height ,#?"${height}px")))))
     (who:with-html-output-to-string (_)
       (:html
        (:head
-        (:script :src "https://cdn.plot.ly/plotly-latest.min.js"))
+        (:script :src "https://cdn.plot.ly/plotly-latest.min.js")
+        (:style (who:str style)))
        (:body
-        (:div :id "plot" :style dim)
+        (:div :id "plot")
         (:script (who:str plot-code)))))))
 
 (defun open-plot (plot-code width height)
