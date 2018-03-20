@@ -3,5 +3,6 @@
 (defpackage #:plotly-cl
   (:use #:cl)
   (:export #:pl-plot
-           #:line
-           #:scatter))
+           #:pl-scatter
+           #:pl-line
+           #:pl-fn))
